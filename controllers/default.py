@@ -46,10 +46,10 @@ def developer():
 @auth.requires_login()
 def upload():                             
     upload_form = SQLFORM.factory(
-           Field('Upload_apk', 'upload', uploadfolder=returnPath() ,requires=IS_NOT_EMPTY()),
+           Field('Upload_apk' , 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),
            Field('Screenshot1', 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),
-           Field('Screenshot2', 'upload', requires=IS_NOT_EMPTY()),
-           Field('Screenshot3', 'upload', requires=IS_NOT_EMPTY()), )                   
+           Field('Screenshot2', 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),
+           Field('Screenshot3', 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()), )                   
     if upload_form.process().accepted:
         response.flash = 'record inserted'
         redirect(URL('complete'))             
