@@ -1,7 +1,22 @@
+# -*- coding: utf-8 -*-
+# this file is released under public domain and you can use without limitations
+
+#########################################################################
+## This is a samples controller
+## - index is the default action of any application
+## - user is required for authentication and authorization
+## - download is for downloading files uploaded in the db (does streaming)
+## - call exposes all registered services (none by default)
+#########################################################################
+
+
+
 import os
+import shutil
 
 rows = db(db.developer).select() 
-packages=db(db.package).select()
+packages = db(db.package).select()
+relative_path = os.getcwd() + '/applications/aakash_bazaar/uploads/'
 
 def generateMeta():
     for each in rows:
@@ -12,17 +27,25 @@ def generateMeta():
             f.write('Source Code: %s\n' %(each.Source_Code))
             f.write('Issue Tracker: %s\n\n' %(each.Issue_Tracker))
             f.write('Summary:%s\n' %(each.Summary))
-            f.write('Description:\n%s\n.\n\n' %(each.Description))
+            f.write('Description:\n%s\n\n' %(each.Description))
+            f.write('Changelog - \n%s\n. \n\n' %(each.Changelog))
             f.write('Update Check Mode:Market\n\n')
+
 
 
 def returnPath():
     for each in packages:
-        if each.user_id==str(auth.user_id):
-            package_path=os.getcwd() + '/applications/aakash_bazaar/uploads/' + each.Package_name
+        if each.user_id == str(auth.user_id):
+            package_path = relative_path + each.Package_name
             if not os.path.exists(package_path):
                 os.makedirs(package_path)  
     return package_path       
+    
+def deletePath():
+    for each in packages:
+        if (each.user_id==str(auth.user_id) and os.path.exists(relative_path + each.Package_name)):
+            shutil.rmtree(relative_path + each.Package_name)
+            
     
 
 @auth.requires_login()
@@ -44,7 +67,8 @@ def developer():
 
 
 @auth.requires_login()
-def upload():                             
+def upload():
+    deletePath()                             
     upload_form = SQLFORM.factory(
            Field('Upload_apk' , 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),
            Field('Screenshot1', 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),

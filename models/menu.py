@@ -11,8 +11,8 @@ response.subtitle = T('')
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
 response.meta.author = 'Srikant Patnaik <srikant@fossee.in>'
-response.meta.description = 'a remote debugger'
-response.meta.keywords = 'aakash, support, debug'
+response.meta.description = 'aakash bazaar - an opensource android market place'
+response.meta.keywords = 'aakash-bazaar, android'
 response.meta.generator = ''
 
 ## your http://google.com/analytics id

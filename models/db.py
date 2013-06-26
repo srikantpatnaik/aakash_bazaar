@@ -72,7 +72,7 @@ db.define_table('package',
  
 db.define_table('developer',
                  Field('Name_of_the_apk', 'string', requires=IS_NOT_EMPTY()),
-                 Field('Package_name', 'string', requires=IS_NOT_EMPTY()),
+                 #Field('Package_name', 'string', requires=IS_NOT_EMPTY()),
                  Field('Category', requires=IS_IN_SET(['Teaching', 'Game', 'Design', 'Development', 'Others'])),
                  Field('License', requires=IS_IN_SET(['GNU GPLv3', 'GNU GPLv2', 'BSD'])),
                  Field('Web_Site', 'string', requires=IS_NOT_EMPTY()),

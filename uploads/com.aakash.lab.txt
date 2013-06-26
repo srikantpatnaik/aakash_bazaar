@@ -4,10 +4,13 @@ Web Site: github.com/androportal/installer
 Source Code: github.com/androportal/installer
 Issue Tracker: github.com/androportal/installer/issue
 
-Summary:f
+Summary:tttttt
 Description:
-fv
-.
+tt
+
+Changelog - 
+tt
+. 
 
 Update Check Mode:Market
 
