@@ -1,0 +1,13 @@
+Category: Game
+License: GNU GPLv3
+Web Site: github.com/androportal/installer
+Source Code: github.com/androportal/installer
+Issue Tracker: github.com/androportal/installer/issue
+
+Summary:f
+Description:
+fv
+.
+
+Update Check Mode:Market
+
