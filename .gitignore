@@ -1,5 +1,6 @@
 errors/
 databases/
+sessions/
 progress.log
 *.bak
 *.pyc

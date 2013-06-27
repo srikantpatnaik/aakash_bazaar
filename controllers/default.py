@@ -41,12 +41,33 @@ def returnPath():
                 os.makedirs(package_path)  
     return package_path       
     
+    
 def deletePath():
     for each in packages:
         if (each.user_id==str(auth.user_id) and os.path.exists(relative_path + each.Package_name)):
             shutil.rmtree(relative_path + each.Package_name)
             
     
+def renameFiles():
+    count=1
+    for each in packages:
+        if each.user_id == str(auth.user_id):
+            package_name = each.Package_name            
+    for each in rows:
+        if each.user_id == str(auth.user_id):
+            list_of_files=os.listdir(relative_path + package_name)
+            apk_name = each.Name_of_the_apk            
+    for each in list_of_files:
+        print list_of_files
+        if '.png' in each:            
+            shutil.move(relative_path + package_name + '/' + each,\
+            relative_path + package_name + '/' + package_name + '.' + str(count) +'.png')
+            count=count+1                   
+        if '.apk' in each: 
+            shutil.move(relative_path + package_name + '/' + each,\
+                        relative_path + '/' + apk_name + '.apk')
+                    
+            
 
 @auth.requires_login()
 def index():
@@ -72,8 +93,8 @@ def upload():
     upload_form = SQLFORM.factory(
            Field('Upload_apk' , 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),
            Field('Screenshot1', 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),
-           Field('Screenshot2', 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()),
-           Field('Screenshot3', 'upload', uploadfolder=returnPath(), requires=IS_NOT_EMPTY()), )                   
+           Field('Screenshot2', 'upload', uploadfolder=returnPath()),
+           Field('Screenshot3', 'upload', uploadfolder=returnPath()))                   
     if upload_form.process().accepted:
         response.flash = 'record inserted'
         redirect(URL('complete'))             
@@ -83,6 +104,7 @@ def upload():
 @auth.requires_login()
 def complete():
     generateMeta()
+    renameFiles()
     return dict(done=T('Congratulations %(first_name)s. \n \
                     Your app and screenshots will be reviewed, and would appear within 24 hours' %auth.user))
 
