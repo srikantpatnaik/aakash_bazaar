@@ -61,8 +61,8 @@ $(document).bind("mobileinit", function(){
 });
     </script>
 
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css"" />
-    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"" />
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
     <style>
       .error { color: red; }
     </style>
@@ -76,8 +76,8 @@ $(document).bind("mobileinit", function(){
   <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
     
     <div data-role="page">
-<div data-role="header" data-fullscreen="true" data-position="fixed">
-<!-- fix	<div data-role="header" data-position="fixed"> -->
+<!-- <div data-role="header" data-fullscreen="true" data-position="fixed"> -->
+<div data-role="header" data-position="fixed">
 
 	<h1>{{=response.title}}</h1>
 	{{block header}}
@@ -102,8 +102,8 @@ $(document).bind("mobileinit", function(){
 	{{include}}
       </div>
 
-<div data-role="footer" data-fullscreen="true" data-position="fixed" style="padding: 5px; text-align: center">
-<!-- fix	<div data-role="footer" data-position="fixed" style="padding: 5px; text-align: center"> -->
+<!-- <div data-role="footer" data-fullscreen="true" data-position="fixed" style="padding: 5px; text-align: center"> -->
+	<div data-role="footer" data-position="fixed" style="padding: 5px; text-align: center"> 
 
 	{{block footer}}
 	powered by web2py - @2011

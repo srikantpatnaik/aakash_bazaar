@@ -83,7 +83,7 @@ def developer():
     form = SQLFORM(db.developer)
     if form.process().accepted:
         response.flash = 'record inserted'
-        redirect(URL('upload'))
+        redirect(URL('upload'))      
     return dict(form=form)
 
 
