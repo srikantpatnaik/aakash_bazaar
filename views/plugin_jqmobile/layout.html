@@ -76,7 +76,9 @@ $(document).bind("mobileinit", function(){
   <!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
     
     <div data-role="page">
-	<div data-role="header" data-position="fixed">
+<div data-role="header" data-fullscreen="true" data-position="fixed">
+<!-- fix	<div data-role="header" data-position="fixed"> -->
+
 	<h1>{{=response.title}}</h1>
 	{{block header}}
 	{{if not auth.user:}}
@@ -99,7 +101,9 @@ $(document).bind("mobileinit", function(){
 	{{pass}}
 	{{include}}
       </div>
-	<div data-role="footer" data-position="fixed" style="padding: 5px; text-align: center">
+
+<div data-role="footer" data-fullscreen="true" data-position="fixed" style="padding: 5px; text-align: center">
+<!-- fix	<div data-role="footer" data-position="fixed" style="padding: 5px; text-align: center"> -->
 
 	{{block footer}}
 	powered by web2py - @2011
