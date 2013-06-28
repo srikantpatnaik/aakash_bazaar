@@ -27,7 +27,7 @@ def generateMeta():
             f.write('Source Code: %s\n' %(each.Source_Code))
             f.write('Issue Tracker: %s\n\n' %(each.Issue_Tracker))
             f.write('Summary:%s\n' %(each.Summary))
-            f.write('Description:\n%s\n\n' %(each.Description))
+            f.write('Description:\n%s<br><br>\n\n' %(each.Description))
             f.write('Changelog - \n%s\n.\n\n' %(each.Changelog))
             f.write('Update Check Mode:Market\n\n')
 
